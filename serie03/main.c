@@ -46,24 +46,122 @@ int main()
         (tab[i]<min)?min=tab[i]:min;
     }
     printf("\nle min de tableau est : %d",min);
-    */
+
     //Exercice 03
-    int tab[100],n,tmp;
+    int tab[100],tabInverser[100],n;
+    printf("Entrer la taille de tableau");
     scanf("%d",&n);
-    for(int i = 0;i<n;i++){
-        printf("Tab[%d] = ",i+1);
+    //inverser le tableau
+    for(int i = 1; i<=n; i++)
+    {
+        printf("Tab[%d] = ",i);
+        scanf("%d",&tab[i]);
+        tabInverser[n-i+1]=tab[i];
+    }
+    //affichage de tableau inverser
+    printf("\nLe tableau inverser est :\n");
+    for(int i =1; i<=n; i++)
+    {
+        printf("Tab[%d] = %d\n",i+1,tabInverser[i]);
+    }
+
+
+    //Exercice 04 scinder/split -+
+    int tab[100],tabpos[100],tabneg[100],n,tn=0,tp=0;
+    printf("Entrer la taille de tableau");
+    scanf("%d",&n);
+
+    for(int i = 1; i<=n; i++)
+    {
+        printf("Tab[%d] = ",i);
+        scanf("%d",&tab[i]);
+        if(tab[i]>=0)
+        {
+            tabpos[tp]=tab[i];
+            tp++;
+        }
+        if(tab[i]<0)
+        {
+            tabneg[tn]=tab[i];
+            tn++;
+
+        }
+    }
+    //tab positive
+    printf("\nTableau positive\n");
+    for(int i =0; i<tp; i++)
+    {
+        printf("tabpositive[%d]= %d\n",i,tabpos[i]);
+    }
+
+    //tab negative
+    printf("\nTableau negative\n");
+    for(int i =0; i<tn; i++)
+    {
+        printf("tabpositive[%d]= %d\n",i,tabneg[i]);
+    }
+
+
+    //Exercice05 chercher une val dans un tableau
+    int tab[]={1,2,1-5,3,4,10},val,indice;
+    for(int i =0; i<7; i++)
+        {
+            printf("tab[%d]= %d\n",i,tab[i]);
+        }
+
+    printf("Entrer une valeur ?\n");
+    scanf("%d",&val);
+    indice=-1;
+    for(int i =0; i<7; i++)
+        {
+            if(tab[i]== val) {
+                    indice=i;
+            }
+        }
+        indice==-1?return indice:printf("l'indice de %d rechercher est :%d",val,i);
+
+      */
+    //Exercice06
+    int tab[1000],val,debut=0,pos,n,milieu,fin,arret=0;
+    printf("Entrer la taille de tableau:\n");
+    scanf("%d",&n);
+
+    for(int i = 1; i<=n; i++)
+    {
+        printf("Tab[%d] = ",i);
         scanf("%d",&tab[i]);
     }
-    //inverser le tableau
-    int firstval = tab[0];
+    printf("Entrer une valeur a rechercher?\n");
+    scanf("%d",&val);
 
-    for(int i =0;i<n;i++){
-        tab[n-i+1]=tab[i];
+    fin=n-1;
+
+    while(debut<=fin && arret == 0)
+    {
+        milieu = (debut+fin)/2;
+        if(val==tab[milieu])
+        {
+            pos=milieu;
+            arret=1;
+        }
+        else
+        {
+            if(val>tab[milieu])
+                debut=milieu+1;
+            if(val<tab[milieu])
+                fin=milieu-1;
+
+        }
+    }
+    if(arret==1)
+    {
+        printf("%d est trouve a la position: %d",val,pos);
+    }
+    else
+    {
+        printf("n'existe pas dans le tableau");
     }
 
 
-    for(int i =0;i<n;i++){
-         printf("Tab[%d] = %d\n",i+1,tab[i]);
-    }
     return 0;
 }
