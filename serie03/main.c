@@ -120,13 +120,13 @@ int main()
         }
         indice==-1?return indice:printf("l'indice de %d rechercher est :%d",val,i);
 
-      */
+
     //Exercice06
     int tab[1000],val,debut=0,pos,n,milieu,fin,arret=0;
     printf("Entrer la taille de tableau:\n");
     scanf("%d",&n);
 
-    for(int i = 1; i<=n; i++)
+    for(int i = 0; i<n; i++)
     {
         printf("Tab[%d] = ",i);
         scanf("%d",&tab[i]);
@@ -155,13 +155,101 @@ int main()
     }
     if(arret==1)
     {
-        printf("%d est trouve a la position: %d",val,pos);
+        printf("%d est trouve a la position: %d",val,pos+1);
     }
     else
     {
         printf("n'existe pas dans le tableau");
     }
 
+//Exercice06: insertion a la kiem position
 
+ int tab[1000],taille,val,pos,i;
+    printf("Entrer la taille de tableau:\n");
+    scanf("%d",&taille);
+
+    for(i = 0; i<taille; i++)
+    {
+        printf("Tab[%d] = ",i);
+        scanf("%d",&tab[i]);
+    }
+    printf("Entrer la position de element a inserer dans le tableau:\n");
+    scanf("%d",&pos);
+    printf("Entrer la valeur de element a inserer dans le tableau:\n");
+    scanf("%d",&val);
+    i=0;
+    for (i = taille - 1; i >= pos - 1; i--)
+      tab[i+1] = tab[i];
+
+       tab[pos-1] = val;
+
+     for(i = 0; i <= taille; i++)
+    {
+        printf("Tab[%d] = %d\n",i,tab[i]);
+
+    }
+
+    */
+    //Exercice07 fusionne deux tab dans l'ordre croissant
+     int tab1[1000],tab2[1000],tab3[1000],taille1,taille2,i,j;
+     printf("Entrer la taille de tableau 1:\n");
+     scanf("%d",&taille1);
+
+     printf("Remplissage de tableau numero 1 :\n");
+    for(i = 1; i<=taille1; i++)
+    {
+        do{
+            printf("Tab1[%d] = ",i);
+            scanf("%d",&tab1[i]);
+        }while(i>1 && tab1[i]<=tab1[i-1]);
+    }
+    printf("Entrer la taille de tableau 2:\n");
+     scanf("%d",&taille2);
+
+    printf("Remplissage de tableau numero 2 :\n");
+    for(j = 1; j<=taille2; j++)
+    {
+        do{
+            printf("Tab2[%d] = ",j);
+            scanf("%d",&tab2[j]);
+        }while(i>1 && tab2[j]<=tab2[j-1]);
+
+    }
+    printf("Creation de tableau numero 3 : \n");
+    i=1,j=1;
+    int e =1;
+    while(i<taille1 && j<taille2){
+        if(tab1[i]<tab2[j]){
+          tab3[e]=tab1[i];
+          i=i+1;
+        }
+        else{
+            if(tab1[i] == tab2[j]){
+                tab3[e]=tab1[i];
+                tab3[e+1]=tab2[j];
+                i=i+1;
+                j=j+1;
+            }else{
+                tab3[e]=tab2[j];
+                j=j+1;
+            }
+        }
+        e=e+1;
+    }
+     for(i = i; i<taille1; i++)
+     {
+         tab3[e]=tab1[i];
+     }
+     for(j = j; i<taille2; j++)
+     {
+         tab3[e]=tab2[j];
+     }
+    int taille3=taille2+taille1;
+
+
+    for(e = 1; e<=taille3; e++)
+    {
+         printf("Tab3[%d] = %d\n",e,tab3[e]);
+    }
     return 0;
 }
