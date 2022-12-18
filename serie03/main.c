@@ -212,21 +212,24 @@ int main()
         do{
             printf("Tab2[%d] = ",j);
             scanf("%d",&tab2[j]);
-        }while(i>1 && tab2[j]<=tab2[j-1]);
+        }while(i>1 && tab2[j]<tab2[j-1]);
 
     }
     printf("Creation de tableau numero 3 : \n");
+
     i=1,j=1;
-    int e =1;
-    while(i<taille1 && j<taille2){
-        if(tab1[i]<tab2[j]){
+    int e =1,dbl=0;
+
+    while(i<=taille1 && j<=taille2){
+        if(tab1[i] < tab2[j]){
           tab3[e]=tab1[i];
           i=i+1;
         }
         else{
             if(tab1[i] == tab2[j]){
+                    dbl++;
                 tab3[e]=tab1[i];
-                tab3[e+1]=tab2[j];
+                //tab[e+1] = tab2[j];
                 i=i+1;
                 j=j+1;
             }else{
@@ -236,20 +239,95 @@ int main()
         }
         e=e+1;
     }
-     for(i = i; i<taille1; i++)
+
+     for(i = i; i<=taille1; i++)
      {
          tab3[e]=tab1[i];
      }
-     for(j = j; i<taille2; j++)
+     for(j = j; j<=taille2; j++)
      {
          tab3[e]=tab2[j];
      }
     int taille3=taille2+taille1;
 
 
-    for(e = 1; e<=taille3; e++)
+    for(e = 1; e<=taille3-dbl; e++)
     {
          printf("Tab3[%d] = %d\n",e,tab3[e]);
     }
+
+
+    /* //Supression des doublon
+    int k;
+    printf("La table 3 Apres fusion");
+       for (i = 0; i < taille3; i++) {
+      for (j = i + 1; j < taille3;) {
+         if (tab3[j] == tab3[i]) {
+            for (k = j; k < taille3; k++) {
+               tab3[k] = tab3[k + 1];
+            }
+            taille3--;
+         } else
+            j++;
+      }
+   }
+
+   printf(" Tableau sans doublons: ");
+   for (i = 0; i < taille3; i++) {
+      printf("%d ", tab3[i]);
+   }*/
+
+
+
+   /*
+    il faut connaitre qu'il existe 6 types de tri :
+
+    tri par sélection :
+
+    int i,j,c;
+for(i=0;i<N-1;i++)
+    for(j=i+1;j<N;j++)
+        if ( T[i] > T[j] ) {
+            c = T[i];
+            T[i] = T[j];
+            T[j] = c;
+        }
+
+    tri a bulle :
+
+    int i,j,c;
+
+for(j=1;j<=N;j++) // pour faire l'operation N fois
+    for(i=0;i<N-1;i++)
+        if ( T[i] > T[i+1] ) {
+                c = T[i];
+                T[i] = T[i+1];
+                T[i+1] = c;
+        }
+
+
+    tri par permutation :
+
+    int i,j,k,c;
+
+for(i=1;i<N;i++) {
+
+    if ( T[i] < T[i-1] ) { // si l’élément est mal placé
+
+        j = 0;
+
+        while ( T[j] < T[i] ) j++; // cette boucle sort par j = la nouvelle position de l’élément
+
+ c = T[i]; // ces 2 lignes servent a translater les cases en avant pour pouvoir insérer l’élément a sa nouvelle position
+        for( k = i-1 ; k >= j ; k-- ) T[k+1] = T[k];
+ T[j] = c; // l'insertion
+    }
+}
+
+    tri par insertion?
+    tri par fusion ?
+    tri rapide?
+
+
     return 0;
 }
