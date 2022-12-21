@@ -182,7 +182,6 @@ int main()
       tab[i+1] = tab[i];
 
        tab[pos-1] = val;
-
      for(i = 0; i <= taille; i++)
     {
         printf("Tab[%d] = %d\n",i,tab[i]);
@@ -190,8 +189,9 @@ int main()
     }
 
     */
+
     //Exercice07 fusionne deux tab dans l'ordre croissant
-     int tab1[1000],tab2[1000],tab3[1000],taille1,taille2,i,j;
+     int tab1[1000],tab2[1000],tab3[2000],taille1,taille2,i,j;
      printf("Entrer la taille de tableau 1:\n");
      scanf("%d",&taille1);
 
@@ -215,6 +215,7 @@ int main()
         }while(i>1 && tab2[j]<tab2[j-1]);
 
     }
+
     printf("Creation de tableau numero 3 : \n");
 
     i=1,j=1;
@@ -243,10 +244,12 @@ int main()
      for(i = i; i<=taille1; i++)
      {
          tab3[e]=tab1[i];
+         e++;
      }
      for(j = j; j<=taille2; j++)
      {
          tab3[e]=tab2[j];
+         e++;
      }
     int taille3=taille2+taille1;
 
@@ -255,6 +258,8 @@ int main()
     {
          printf("Tab3[%d] = %d\n",e,tab3[e]);
     }
+
+
 
 
     /* //Supression des doublon
@@ -276,8 +281,6 @@ int main()
    for (i = 0; i < taille3; i++) {
       printf("%d ", tab3[i]);
    }*/
-
-
 
    /*
     il faut connaitre qu'il existe 6 types de tri :
