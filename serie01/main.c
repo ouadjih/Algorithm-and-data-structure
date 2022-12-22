@@ -73,7 +73,7 @@ int main()
          if(delta == 0){
             x1 = -b / (2*a);
             x2 = x1;
-            printf("Solution doubleé x1 = x2 = %f ",x1);
+            printf("Solution doubleï¿½ x1 = x2 = %f ",x1);
          }else{
             printf("delta negative pas de solution dans |R");
          }
