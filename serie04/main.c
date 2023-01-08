@@ -155,13 +155,73 @@ int main()
     }
     */
     //Exerice 07 : produit de deux matrice
-    int A[100][100],B[100][100],n,m;
+    int A[100][100],B[100][100],mul[100][100],n,m,p;
     //Nbr ligne de A doit egalement egale a nbr colonne de B
-    printf("Entrer Nbr des lignes de A et colonne de B: ");
+    printf("Entrer Nbr des lignes de A ");
     scanf("%d",&n);
-    printf("Entrer Nbr des colonnes de A: ");
-    scanf("%d",&ma);
-    printf("Entrer Nbr des Lignes de B: ");
-    scanf("%d",&nb);
+    printf("Entrer Nbr des colonnes de A et lignes de b: ");
+    scanf("%d",&m);
+    printf("Entrer Nbr des colonnes de B: ");
+    scanf("%d",&p);
+    //Remplissage des mat a et b :
+      for(int i=0;i<n;i++){
+         for(int j=0;j<m;j++){
+            scanf("%d",&A[i][j]);
+            }
+       }
+       for(int i=0;i<m;i++){
+         for(int j=0;j<p;j++){
+            scanf("%d",&B[i][j]);
+            }
+       }
+      //Affichage de Matrice A
+      printf("\nLa Matrice A :");
+    for(int i=0; i<n; i++)
+    {
+       printf("\n");
+       for(int j=0; j<m; j++)
+       {
+           printf("%d",A[i][j]);
+           printf(" ");
+       }
+    }
+      //Affichage de Matrice b
+      printf("\nLa Matrice B:");
+    for(int i=0; i<m; i++)
+    {
+       printf("\n");
+       for(int j=0; j<p; j++)
+       {
+           printf("%d",B[i][j]);
+           printf(" ");
+       }
+    }
+
+    //multiplication de a x b
+for (int i=0;i<n;i++)
+	{
+		for (int j=0;j<p;j++)
+		{
+			for (int k=0;k<m;k++)
+			{
+				mul[i][j]=A[i][k]*B[k][j]+mul[i][j];
+			}
+		}
+	}
+
+  //Affichage de Matrice b
+      printf("\nLa Matrice B:");
+    for(int i=0; i<n; i++)
+    {
+       printf("\n");
+       for(int j=0; j<p; j++)
+       {
+           printf("%d",mul[i][j]);
+           printf(" ");
+       }
+    }
+
+
+
     return 0;
 }
