@@ -153,7 +153,7 @@ int main()
            printf(" ");
        }
     }
-    */
+
     //Exerice 07 : produit de deux matrice
     int A[100][100],B[100][100],mul[100][100],n,m,p;
     //Nbr ligne de A doit egalement egale a nbr colonne de B
@@ -221,6 +221,38 @@ for (int i=0;i<n;i++)
        }
     }
 
+*/
+//Exercice 08:
+ int mat[100][100],n,m,k,vect[100];
+  //lire les dimensions
+    printf("Entrer Nbr des lignes : ");
+    scanf("%d",&n);
+    printf("Entrer Nbr des colonnes : ");
+    scanf("%d",&m);
+    k=n*m;
+    //remplir la matrice et vecteur
+    for(int i=1;i<=n;i++){
+     for(int j=1;j<=m;j++){
+        scanf("%d",&mat[i][j]);
+        vect[(i-1)*m+j]=mat[i][j];
+        }
+    }
+      printf("\nLa Matrice :");
+     for(int i=1;i<=n;i++){
+            printf("\n");
+         for(int j=1;j<=m;j++){
+            printf("%d",mat[i][j]);
+            printf(" ");
+        }
+    }
+    printf("\n");
+    //affichage de valuer et indice apartir de b
+    for(int i=1; i<=k;i++){
+            printf("L'element %d se trouve a mat[%d][%d]\n",vect[i],i%m,i%m+1);
+    }
+
+
+//Exercice 09:
 
 
     return 0;
