@@ -100,6 +100,7 @@ int main()
             }
          }
          //La modification
+
          tab_occ[i]=nbr_occ;
          printf("le nbr d'occurance est  dans la ligne %d est : %d\n",i,nbr_occ);
         }
@@ -152,6 +153,38 @@ int main()
            printf("%d",mat[i][j]);
            printf(" ");
        }
+    }
+     //Exerice 06 :
+      int mat[100][100],n,flag=1;
+    //lire les dimensions
+    printf("Entrer Nbr des lignes et colonnes ( mat carre ) : ");
+    scanf("%d",&n);
+    //remplir la matrice
+    for(int i=0;i<n;i++){
+     for(int j=0;j<n;j++){
+        scanf("%d",&mat[i][j]);
+     }
+    }
+    //affichage de la matrice
+    printf("La Matrice :");
+     for(int i=0;i<n;i++){
+            printf("\n");
+         for(int j=0;j<n;j++){
+            printf("%4d",mat[i][j]);
+        }
+    }
+    for(int i=0;i<n;i++){
+     for(int j=0;j<n;j++){
+        if(i !=j && mat[i][j]!=mat[j][i]){
+            flag=0;
+            break;
+        }
+     }
+    }
+    if(flag){
+        printf("\nla matrice symetrique");
+    }else{
+        printf("\nla matrice n'est pas symetrique");
     }
 
     //Exerice 07 : produit de deux matrice
@@ -221,7 +254,7 @@ for (int i=0;i<n;i++)
        }
     }
 
-*/
+
 //Exercice 08:
  int mat[100][100],n,m,k,vect[100];
   //lire les dimensions
@@ -250,7 +283,7 @@ for (int i=0;i<n;i++)
     for(int i=1; i<=k;i++){
             printf("L'element %d se trouve a mat[%d][%d]\n",vect[i],i%m,i%m+1);
     }
-
+*/
 
 //Exercice 09:
 
