@@ -137,10 +137,9 @@ int main()
         }
     }
     /* diagonal
-    int i=0,j=0;
-     while(i==j && i<n){
-        mat[i][j]=0;
-        j++;
+    int i=0;
+     while(i<n){
+        mat[i][i]=0;
         i++;
      }*/
     /*
