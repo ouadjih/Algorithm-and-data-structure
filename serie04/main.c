@@ -33,7 +33,7 @@ int main()
 
     //Exercice 02
 
-    typedef struct indice{
+    typedef struct {
         int val;
         int i;
         int j;
