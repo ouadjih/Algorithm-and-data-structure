@@ -253,39 +253,39 @@ for (int i=0;i<n;i++)
        }
     }
 
-
 //Exercice 08:
- int mat[100][100],n,m,k,vect[100];
+*/
+ int mat[100][100],n,m,K,vect[100];
   //lire les dimensions
     printf("Entrer Nbr des lignes : ");
     scanf("%d",&n);
     printf("Entrer Nbr des colonnes : ");
     scanf("%d",&m);
-    k=n*m;
+    K=0;
     //remplir la matrice et vecteur
-    for(int i=1;i<=n;i++){
-     for(int j=1;j<=m;j++){
+    for(int i=0;i<n;i++){
+     for(int j=0;j<m;j++){
         scanf("%d",&mat[i][j]);
-        vect[(i-1)*m+j]=mat[i][j];
+        vect[K]=mat[i][j];
+        K++;
         }
     }
       printf("\nLa Matrice :");
-     for(int i=1;i<=n;i++){
+     for(int i=0;i<n;i++){
             printf("\n");
-         for(int j=1;j<=m;j++){
+         for(int j=0;j<m;j++){
             printf("%d",mat[i][j]);
             printf(" ");
         }
     }
     printf("\n");
     //affichage de valuer et indice apartir de b
-    for(int i=1; i<=k;i++){
-            printf("L'element %d se trouve a mat[%d][%d]\n",vect[i],i%m,i%m+1);
+    for(int i=0; i<K;i++){
+            printf("L'element %d se trouve a mat[%d][%d]\n",vect[i],i
+                   /m,i%m);
     }
-*/
+
 
 //Exercice 09:
-
-
-    return 0;
+ return 0;
 }
