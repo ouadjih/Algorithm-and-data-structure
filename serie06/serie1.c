@@ -51,6 +51,30 @@ int isMultipleTrois(int a){
 return a%3 == 0?1:0;
 }
 
+int LongChain(const char * mot){
+    int i=0;
+    while(mot[i]!='\0'){
+        i=i+1;
+    }
+    return i;
+}
+
+int sommeNbr(int n){
+    if(n==0){
+        return 0;
+    }
+    return sommeNbr(n-1)+n;
+}
+void motMiroir(char *mot, int debut, int fin) {
+    if (debut < fin) {
+        char temp = mot[debut];
+        mot[debut] = mot[fin];
+        mot[fin] = temp;
+        motMiroir(mot, debut + 1, fin - 1);
+    }
+}
+
+
  int main(){
 
     /* Exercice 01
@@ -58,8 +82,8 @@ return a%3 == 0?1:0;
     int x,y,z;
     scanf("%d %d %d",&x,&y,&z);
     printf("le maximum entre %d, %d, %d est %d ",x,y,z,maximum(maximum(x,y),z));
+*/
 
-    */
     /*
     Exercice 02
 
@@ -98,7 +122,7 @@ return a%3 == 0?1:0;
 
     /*Exercice 6:
 
-    */
+
     int x;
     printf("donner x : ");
     scanf("%d",&x);
@@ -106,4 +130,30 @@ return a%3 == 0?1:0;
     if(isMultipleDeux(x)) printf("%d est pair\n",x);
     if(isMultipleTrois(x)) printf("%d est multiple de 3\n",x);
     if(isMultipleDeux(x) && isMultipleTrois(x)) printf("%d est divisible par 6",x);
+      */
+    /*Exercice 7
+    char chaine[100];
+    printf("Entrer la chaine : ");
+    //fgets(chaine,sizeof(chaine),stdin);
+    scanf("%s", chaine);
+    printf("%s",chaine);
+    printf("%d",LongChain(chaine));
+    */
+
+    /*Exercice 8 recursivite
+    int a = sommeNbr(7);
+    printf("%d",a);
+    */
+
+    /*Exercice 9 recursif motmiroire
+        char mot[100];
+        printf("Entrer la chaine : ");
+        scanf("%s",mot);
+        int longeur = LongChain(mot);
+
+        motMiroir(mot,0,longeur-1);
+
+        printf("%s",mot);
+    */
+
 return 0;}
