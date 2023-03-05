@@ -105,5 +105,5 @@ return a%3 == 0?1:0;
 
     if(isMultipleDeux(x)) printf("%d est pair\n",x);
     if(isMultipleTrois(x)) printf("%d est multiple de 3\n",x);
-    if(isMultipleDeux(x) && isMultipleTrois(x)) printf("%d est divisible de 6",x);
+    if(isMultipleDeux(x) && isMultipleTrois(x)) printf("%d est divisible par 6",x);
 return 0;}
