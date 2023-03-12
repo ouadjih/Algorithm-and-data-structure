@@ -41,8 +41,10 @@ int main()
      */
 
     Etudiant etudiant[100];
+    float moyenne_general,s=0;
+    int n=2;
 
-    for(int i = 0; i<2; i++)
+    for(int i = 0; i<n; i++)
     {
         printf("\nEtudiant %d : ",i+1);
         printf("\n  nom : ");
@@ -53,9 +55,11 @@ int main()
         scanf("%d",&etudiant[i].age);
         printf("  Moyenne : ");
         scanf("%f",&etudiant[i].moyenne);
+         s=s+etudiant[i].moyenne;
+
     }
     printf("------- Affichage de resultat pour chaque d'etudiant -------");
-    for(int i = 0; i<2; i++)
+    for(int i = 0; i<n; i++)
     {
         printf("\nEtudiant %d : ",i+1);
         printf("\n  nom : %s",etudiant[i].nom);
@@ -64,13 +68,16 @@ int main()
         printf("\n  Moyenne : %f",etudiant[i].moyenne);
         if(etudiant[i].moyenne>=10)
         {
-            printf("ADMIS");
+            printf("\nRESULTAT : ADMIS");
         }
         else
         {
-            printf("AJOURNE");
+            printf("\n RESULTAT : AJOURNE");
         }
+
     }
+    moyenne_general=s/n;
+    printf("\nMoyenne genral : %f",moyenne_general);
 
     return 0;
 
