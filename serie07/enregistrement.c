@@ -15,6 +15,28 @@ typedef struct Etudiant
     float moyenne;
 } Etudiant;
 
+
+typedef struct Date
+{
+    int jour,mois,annee;
+} Date;
+
+
+
+typedef struct Adresse
+{
+    int numero;
+    char rue[20],villa[20],wilaya[20];
+
+} Adresse;
+
+typedef struct Enseignant
+{
+    char nom[20],prenom[20],grade[20];
+    Date date_naiss;
+    Adresse residence;
+    Date Annee_de_recrutement;
+} Enseignant;
 int main()
 {
     /*Exercice01 :
@@ -38,7 +60,9 @@ int main()
 
     printf("\nz1*z2 = %d + %di",produit_complexe.reelle,produit_complexe.imaginaire);
 
-     */
+
+
+     Exercice 02 :
 
     Etudiant etudiant[100];
     float moyenne_general,s=0;
@@ -78,6 +102,31 @@ int main()
     }
     moyenne_general=s/n;
     printf("\nMoyenne genral : %f",moyenne_general);
+*/
+
+ Enseignant T[100];
+ int n;
+ printf("Entrez le nombre d'enseignant");
+ scanf("%d",&n);
+
+ for(int i=0;i<n;i++){
+    printf("\nEnseignant 1 : ");
+    printf("\n  nom : ");
+    scanf("%s",&T[i].nom);
+    printf("  prenom : ");
+    scanf("%s",&T[i].prenom);
+    printf(" Date de naissance jour pui mois pui annee : ");
+    scanf("%d %d %d",&T[i].date_naiss.jour,&T[i].date_naiss.mois,&T[i].date_naiss.annee);
+    printf("  residence numero ,rue, wilaya, villa : \n");
+    scanf("%d %s %s %s",&T[i].residence.numero,&T[i].residence.rue,&T[i].residence.wilaya,&T[i].residence.villa);
+    printf("  Grade : ");
+    scanf("%s",&T[i].grade);
+    printf("  Annee de recrutement : ");
+    scanf("%d %d %d",&T[i].Annee_de_recrutement.jour, &T[i].Annee_de_recrutement.mois, &T[i].Annee_de_recrutement.annee);
+    printf("done ! ");
+ }
+
+
 
     return 0;
 
