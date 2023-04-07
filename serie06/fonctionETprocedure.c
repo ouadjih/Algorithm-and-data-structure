@@ -59,12 +59,49 @@ int LongChain(const char * mot){
     return i;
 }
 
-int sommeNbr(int n){
-    if(n==0){
+/*int isPrime(int n, int i)
+{
+    if (i == 1)
+    {
+        return 1;
+    }
+    else
+    {
+        if (n % i == 0)
+        {
+            return 0;
+        }
+        else
+        {
+            return isPrime(n, i - 1);
+        }
+    }
+}
+*/
+int is_prime(int n) {
+    if (n <= 1) {
         return 0;
     }
-    return sommeNbr(n-1)+n;
+    for (int i = 2; i <= n / 2; i++) {
+        if (n % i == 0) {
+            return 0;
+        }
+    }
+    return 1;
 }
+
+int sum_first_n_primes(int n, int current, int count, int total) {
+    if (count == n) {
+        return total;
+    }
+    else if (is_prime(current)) {
+        return sum_first_n_primes(n, current+1, count+1, total+current);
+    }
+    else {
+        return sum_first_n_primes(n, current+1, count, total);
+    }
+}
+
 void motMiroir(char *mot, int debut, int fin) {
     if (debut < fin) {
         char temp = mot[debut];
@@ -141,11 +178,11 @@ void motMiroir(char *mot, int debut, int fin) {
     */
 
     /*Exercice 8 recursivite
-    int a = sommeNbr(7);
+    int a = sommePrimeNbr(7);
     printf("%d",a);
-    */
+*/
 
-    /*Exercice 9 recursif motmiroire
+    /*Exercice 9 recursif motmiroire*/
         char mot[100];
         printf("Entrer la chaine : ");
         scanf("%s",mot);
@@ -154,6 +191,6 @@ void motMiroir(char *mot, int debut, int fin) {
         motMiroir(mot,0,longeur-1);
 
         printf("%s",mot);
-    */
+
 
 return 0;}
