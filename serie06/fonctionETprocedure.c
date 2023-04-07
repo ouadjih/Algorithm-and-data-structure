@@ -90,17 +90,25 @@ int is_prime(int n) {
     return 1;
 }
 
-int sum_first_n_primes(int n, int current, int count, int total) {
-    if (count == n) {
+int sum_first_n_primes(int n, int total)
+{
+    if (n==1)
+    {
         return total;
     }
-    else if (is_prime(current)) {
-        return sum_first_n_primes(n, current+1, count+1, total+current);
-    }
-    else {
-        return sum_first_n_primes(n, current+1, count, total);
+    else
+    {
+        if (is_prime(n))
+        {
+            return sum_first_n_primes(n-1, total+n);
+        }
+        else
+        {
+            return sum_first_n_primes(n-1, total);
+        }
     }
 }
+
 
 void motMiroir(char *mot, int debut, int fin) {
     if (debut < fin) {
@@ -178,7 +186,7 @@ void motMiroir(char *mot, int debut, int fin) {
     */
 
     /*Exercice 8 recursivite
-    int a = sommePrimeNbr(7);
+    int a = sum_first_n_primes(7,0);
     printf("%d",a);
 */
 
