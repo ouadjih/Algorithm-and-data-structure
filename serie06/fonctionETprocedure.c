@@ -195,10 +195,7 @@ void motMiroir(char *mot, int debut, int fin) {
         printf("Entrer la chaine : ");
         scanf("%s",mot);
         int longeur = LongChain(mot);
-
         motMiroir(mot,0,longeur-1);
-
         printf("%s",mot);
-
 
 return 0;}
